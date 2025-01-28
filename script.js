@@ -1,3 +1,11 @@
+// Menü açma ve kapama
+const menuIcon = document.getElementById('menu-icon');
+const menu = document.getElementById('menu');
+
+menuIcon.addEventListener('click', () => {
+    menu.classList.toggle('show-menu');
+});
+
 // Formlar arasında geçiş
 document.getElementById('register-link').addEventListener('click', function() {
     document.getElementById('login-form').style.display = 'none';
