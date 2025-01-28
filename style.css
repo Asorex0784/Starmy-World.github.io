@@ -1,112 +1,78 @@
 /* Genel Stil Ayarları */
-body {
-    font-family: Arial, sans-serif;
+* {
     margin: 0;
     padding: 0;
-    background-color: #f1f8ff; /* Açık mavi */
-    color: #333;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fafafa;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    flex-direction: column;
+}
+
+.container {
+    width: 100%;
+    max-width: 360px;
+    text-align: center;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo-container h1 {
+    font-size: 30px;
+    color: #7b1fa2;  /* Mor renk */
+    margin-bottom: 20px;
 }
 
 .form-container {
     width: 100%;
-    max-width: 400px;
-    text-align: center;
-}
-
-header {
-    background-color: #7b1fa2; /* Mor renk */
-    color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    width: 100%;
-    margin-bottom: 30px;
-}
-
-h1 {
-    margin: 0;
-    font-size: 32px;
 }
 
 /* Formlar İçin Stil Ayarları */
-.form-wrapper {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
 .form-box {
-    background-color: #fff;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 400px;
-    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
-    opacity: 0;
-    transform: translateX(100%);
-}
-
-.form-slide-in {
-    opacity: 1;
-    transform: translateX(0);
-}
-
-.form-slide-out {
-    opacity: 0;
-    transform: translateX(-100%);
+    display: block;
 }
 
 h2 {
-    color: #7b1fa2; /* Mor renk */
+    font-size: 20px;
     margin-bottom: 20px;
+    color: #333;
 }
 
-label {
-    display: block;
-    margin: 10px 0 5px;
-    font-size: 14px;
-}
-
-input[type="text"], input[type="password"] {
+input[type="text"],
+input[type="email"],
+input[type="password"] {
     width: 100%;
-    padding: 12px;
+    padding: 15px;
     margin: 10px 0;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 5px;
     font-size: 14px;
 }
 
-button.submit-btn {
+button {
     width: 100%;
-    padding: 12px;
+    padding: 15px;
     background-color: #7b1fa2; /* Mor renk */
+    color: white;
     border: none;
-    border-radius: 4px;
-    color: #fff;
+    border-radius: 5px;
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s;
 }
 
-button.submit-btn:hover {
-    background-color: #9c4dcc; /* Daha açık mor */
+button:hover {
+    background-color: #9c4dcc;
 }
 
-footer {
-    text-align: center;
-    padding: 10px;
-    background-color: #333;
-    color: #fff;
-    margin-top: 50px;
-}
-
-/* Linklerin stil ayarları */
+/* Bağlantılar */
 a {
     color: #7b1fa2; /* Mor renk */
     text-decoration: none;
@@ -114,4 +80,19 @@ a {
 
 a:hover {
     text-decoration: underline;
+}
+
+footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 12px;
+    color: #888;
+}
+
+/* Mobil uyumlu tasarım */
+@media (max-width: 600px) {
+    .container {
+        width: 90%;
+        padding: 20px;
+    }
 }
