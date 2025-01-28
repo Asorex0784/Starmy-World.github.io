@@ -63,13 +63,13 @@
 
         // Form gönderme olayları
         document.getElementById('login-form-action').addEventListener('submit', function(event) {
-            event.preventDefault();
-            alert("Giriş başarılı!");
+            event.preventDefault();  // Form gönderimini engelle
+            alert("Giriş başarılı!");  // Giriş işlemi simülasyonu
         });
 
         document.getElementById('register-form-action').addEventListener('submit', function(event) {
-            event.preventDefault();
-            alert("Kaydolma başarılı!");
+            event.preventDefault();  // Form gönderimini engelle
+            alert("Kaydolma başarılı!");  // Kayıt işlemi simülasyonu
         });
     </script>
 </body>
