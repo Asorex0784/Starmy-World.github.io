@@ -7,40 +7,33 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="form-container">
-        <header>
+    <div class="container">
+        <!-- Logo kısmı -->
+        <div class="logo-container">
             <h1>Starmy World</h1>
-        </header>
+        </div>
 
-        <div class="form-wrapper">
-            <!-- Giriş Yap Formu -->
-            <div class="form-box" id="login-form">
+        <!-- Giriş/Kayıt formu container -->
+        <div class="form-container">
+            <div id="login-form" class="form-box">
                 <h2>Giriş Yap</h2>
                 <form id="login-form-action">
-                    <label for="login-username">Kullanıcı Adı:</label>
-                    <input type="text" id="login-username" name="username" placeholder="Kullanıcı adı girin" required>
-                    
-                    <label for="login-password">Şifre:</label>
-                    <input type="password" id="login-password" name="password" placeholder="Şifre girin" required>
-                    
-                    <button type="submit" class="submit-btn">Giriş Yap</button>
-                    <p>Hesabınız yok mu? <a href="javascript:void(0);" id="register-link">Kaydolun</a></p>
+                    <input type="text" id="login-username" placeholder="Kullanıcı Adı" required>
+                    <input type="password" id="login-password" placeholder="Şifre" required>
+                    <button type="submit">Giriş Yap</button>
                 </form>
+                <p>Hesabınız yok mu? <a href="javascript:void(0);" id="register-link">Kaydolun</a></p>
             </div>
-            
-            <!-- Kaydol Formu -->
-            <div class="form-box" id="register-form" style="display: none;">
+
+            <div id="register-form" class="form-box" style="display:none;">
                 <h2>Kaydol</h2>
                 <form id="register-form-action">
-                    <label for="register-username">Kullanıcı Adı:</label>
-                    <input type="text" id="register-username" name="username" placeholder="Kullanıcı adı girin" required>
-                    
-                    <label for="register-password">Şifre:</label>
-                    <input type="password" id="register-password" name="password" placeholder="Şifre girin" required>
-                    
-                    <button type="submit" class="submit-btn">Kaydol</button>
-                    <p>Zaten hesabınız var mı? <a href="javascript:void(0);" id="login-link">Giriş yapın</a></p>
+                    <input type="text" id="register-username" placeholder="Kullanıcı Adı" required>
+                    <input type="email" id="register-email" placeholder="E-posta" required>
+                    <input type="password" id="register-password" placeholder="Şifre" required>
+                    <button type="submit">Kaydol</button>
                 </form>
+                <p>Zaten hesabınız var mı? <a href="javascript:void(0);" id="login-link-back">Giriş yapın</a></p>
             </div>
         </div>
     </div>
@@ -49,28 +42,6 @@
         <p>&copy; 2025 Starmy World. All rights reserved.</p>
     </footer>
 
-    <script>
-        // Formlar arasında geçiş
-        document.getElementById('register-link').addEventListener('click', function() {
-            document.getElementById('login-form').classList.add('form-slide-out');
-            document.getElementById('register-form').classList.add('form-slide-in');
-        });
-
-        document.getElementById('login-link').addEventListener('click', function() {
-            document.getElementById('register-form').classList.add('form-slide-out');
-            document.getElementById('login-form').classList.add('form-slide-in');
-        });
-
-        // Form gönderme olayları
-        document.getElementById('login-form-action').addEventListener('submit', function(event) {
-            event.preventDefault();  // Form gönderimini engelle
-            alert("Giriş başarılı!");  // Giriş işlemi simülasyonu
-        });
-
-        document.getElementById('register-form-action').addEventListener('submit', function(event) {
-            event.preventDefault();  // Form gönderimini engelle
-            alert("Kaydolma başarılı!");  // Kayıt işlemi simülasyonu
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
