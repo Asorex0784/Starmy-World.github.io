@@ -4,6 +4,7 @@ const menu = document.getElementById('menu');
 
 menuIcon.addEventListener('click', () => {
     menu.classList.toggle('show-menu');
+    menu.style.transform = menu.classList.contains('show-menu') ? 'translateY(0)' : 'translateY(-100%)';
 });
 
 // Formlar arasında geçiş
