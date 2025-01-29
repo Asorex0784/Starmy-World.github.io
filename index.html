@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STARMY WORLD - Giriş</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <h1>STARMY WORLD</h1>
+        <div class="menu">
+            <a href="#">Home</a>
+            <a href="#">Help</a>
+            <a href="#">Server</a>
+        </div>
+    </div>
+
+    <!-- Giriş Formu -->
+    <div class="container" id="login-form">
+        <h2>Giriş Yap</h2>
+        <input type="text" id="login-username" placeholder="Kullanıcı Adı">
+        <input type="password" id="login-password" placeholder="Şifre">
+        <button onclick="redirectToDashboard()">Giriş Yap</button>
+        <p class="error-message" id="login-error">Lütfen tüm alanları doldurun!</p>
+        <button class="switch" onclick="toggleForm()">Hesabın yok mu? Kayıt Ol</button>
+    </div>
+
+    <!-- Kayıt Ol Formu -->
+    <div class="container" id="register-form" style="display: none;">
+        <h2>Kayıt Ol</h2>
+        <input type="text" id="register-username" placeholder="Kullanıcı Adı">
+        <input type="password" id="register-password" placeholder="Şifre">
+        <button onclick="redirectToDashboard()">Kayıt Ol</button>
+        <p class="error-message" id="register-error">Lütfen tüm alanları doldurun!</p>
+        <button class="switch" onclick="toggleForm()">Zaten hesabın var mı? Giriş Yap</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
