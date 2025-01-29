@@ -1,2 +1,0 @@
-// Supabase bağlantısını başlat
-const supabase = Supabase.createClient('https://wnfhqwjbvfbigwacticm.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InduZmhxd2pidmZiaWd3YWN0aWNtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzgxMzM4MTYsImV4cCI6MjA1MzcwOTgxNn0.QhkpC972oABWqw_V2WsJUWRazn0Ty9JsKas6qw_J5K4');
