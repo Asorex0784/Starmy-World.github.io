@@ -51,7 +51,7 @@
             gap: 5px;
             cursor: pointer;
             position: relative;
-            right: 20px;
+            right: 15px;
         }
 
         .hamburger div {
@@ -59,37 +59,6 @@
             height: 3px;
             background-color: white;
             border-radius: 5px;
-        }
-
-        /* Menü Listesi */
-        .menu-list {
-            display: none;
-            position: relative;
-            top: 60px;   /* Menü navbar'ın hemen altında */
-            left: 40px;
-            background-color: #4a148c;
-            width: 100px;  /* Menü boyutunu uygun bir şekilde küçülttüm */
-            padding: 10px 0;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .menu-list a {
-            color: white;
-            text-decoration: none;
-            font-size: 16px;
-            padding: 10px;
-            display: block;
-            text-align: left;
-            padding-left: 20px;
-        }
-
-        .menu-list a:hover {
-            background-color: #7b1fa2;
-        }
-
-        .menu-list.show-menu {
-            display: block;
         }
 
         /* Dashboard İçeriği */
@@ -102,6 +71,38 @@
             border-radius: 8px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
             margin-top: 120px;
+            position: relative; /* Menü burada absolute olarak konumlandırılacak */
+        }
+
+        /* Menü Listesi */
+        .menu-list {
+            display: none;
+            position: absolute;
+            top: 50px;   /* Navbar ile biraz mesafe bırak */
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #4a148c;
+            width: 80%;
+            padding: 15px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .menu-list a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            padding: 10px;
+            display: block;
+            text-align: center;
+        }
+
+        .menu-list a:hover {
+            background-color: #7b1fa2;
+        }
+
+        .menu-list.show-menu {
+            display: block;
         }
 
     </style>
@@ -120,11 +121,17 @@
         </div>
     </div>
 
-    <!-- Menü Listesi -->
-    <div class="menu-list" id="menu-list">
-        <a href="#">• Ayarlar</a>
-        <a href="#">• Profil</a>
-        <a href="#" onclick="logout()">• Çıkış</a>
+    <!-- Dashboard İçeriği -->
+    <div class="container">
+        <h2>Dashboard</h2>
+        <p>Hoş geldin!</p>
+
+        <!-- Menü Listesi -->
+        <div class="menu-list" id="menu-list">
+            <a href="#">• Ayarlar</a>
+            <a href="#">• Profil</a>
+            <a href="#" onclick="logout()">• Çıkış</a>
+        </div>
     </div>
 
     <script>
@@ -138,7 +145,6 @@
         function logout() {
             window.location.href = 'index.html';  // Çıkış yapıldığında index.html'ye yönlendir
         }
-
     </script>
 
 </body>
