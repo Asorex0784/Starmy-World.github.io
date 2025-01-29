@@ -4,7 +4,128 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>STARMY WORLD - Dashboard</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Genel Stil Ayarları */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fafafa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            padding-top: 60px;
+        }
+
+        /* Navbar */
+        .navbar {
+            width: 100%;
+            background-color: #4a148c;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 10;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            color: white;
+        }
+
+        .navbar h1 {
+            font-size: 22px;
+            margin-left: 15px;
+        }
+
+        .menu {
+            display: flex;
+            gap: 15px;
+            margin-right: 15px;
+        }
+
+        .menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .menu a:hover {
+            background-color: #7b1fa2;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .hamburger div {
+            width: 30px;
+            height: 3px;
+            background-color: white;
+            border-radius: 5px;
+        }
+
+        /* Menu Listesi */
+        .menu-list {
+            display: none;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            background-color: #4a148c;
+            width: 100%;
+            padding: 15px 0;
+        }
+
+        .menu-list a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            padding: 10px;
+            display: block;
+            text-align: center;
+        }
+
+        .menu-list a:hover {
+            background-color: #7b1fa2;
+        }
+
+        /* Form Konteyneri */
+        .container {
+            width: 100%;
+            max-width: 360px;
+            text-align: center;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            margin-top: 100px; /* Navbar ile içerik arasındaki boşluğu artırdık */
+        }
+
+        /* Ayarlar, Profil ve Çıkış Menüsü */
+        .menu-list.show-menu {
+            display: block;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+    </style>
 </head>
 <body>
 
@@ -16,13 +137,39 @@
             <a href="#">Help</a>
             <a href="#">Server</a>
         </div>
+        <!-- Hamburger Menu -->
+        <div class="hamburger" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
     </div>
 
-    <!-- Dashboard -->
-    <div class="container">
-        <h2>Hoşgeldiniz!</h2>
-        <p>Başarıyla giriş yaptınız veya kayıt oldunuz.</p>
+    <!-- Hamburger Menu Listesi -->
+    <div class="menu-list" id="menu-list">
+        <a href="#">Ayarlar</a>
+        <a href="#">Profil</a>
+        <a href="#" onclick="logout()">Çıkış Yap</a>
     </div>
+
+    <!-- Dashboard İçeriği -->
+    <div class="container">
+        <h2>Dashboard</h2>
+        <p>Hoş geldiniz! Burada bilgileriniz yer alacak.</p>
+    </div>
+
+    <script>
+        // Hamburger menüsünü açıp kapama işlevi
+        function toggleMenu() {
+            const menuList = document.getElementById('menu-list');
+            menuList.classList.toggle('show-menu');
+        }
+
+        // Çıkış yap işlevi
+        function logout() {
+            window.location.href = 'index.html';  // Çıkış yapınca index sayfasına yönlendirme
+        }
+    </script>
 
 </body>
 </html>
