@@ -1,62 +1,111 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Starmy World - Giriş & Kaydol</title>
-    <link rel="stylesheet" href="style.css">
+<style type="text/css">   
+       button {
+           border: none;
+           background: #0076ff;
+           border-radius: 5px;
+           padding: 3px;
+           color: #fff;
+           font-weight: bold;
+           font-size: 15px;
+           text-transform: uppercase;
+       }
+   </style>
+
+<style type="text/css">   
+      textarea {
+         background-color: #f3f3f3; /* changing background-color */
+         color: #000000; /* changing the text color */
+         border: none; /* removing border */
+         outline: none; /* removing outline */
+         resize: none; /* disabling the resize functionality */
+      }
+   </style>
+
+<style type="text/css">   
+       label {
+       	border: 1px inset #0076ff;
+       	border-radius: 5px;
+       	background: #428bca;
+       	color: #fff;
+       	padding-left: 4px;
+       	padding-right: 4px;
+       	margin-right: 3px;
+       }
+   </style>
+
+<nav>
+<h3 style="text-align: center">STARMY WORLD</h3>
+<p style="float: right">
+            <a href="#"> Home </a> |
+            <a href="#"> About </a> |
+            <a href="#"> Contact Us </a> |
+            <a href="#"> Terms of Services </a> |
+            <a href="#"> Privacy Policy </a> </p>
+</nav>
 </head>
-<body>
-    <div class="navbar">
-        <div class="logo-container">
-            <img src="logo.png" alt="Starmy World Logo" class="logo">
-        </div>
-        <div class="menu-icon" id="menu-icon">
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-        </div>
-        <div class="menu" id="menu">
-            <ul>
-                <li><a href="#">Anasayfa</a></li>
-                <li><a href="#">Hakkımızda</a></li>
-                <li><a href="#">İletişim</a></li>
-            </ul>
-        </div>
-    </div>
+<hr style="height: 2px" color="black"/>
+<body style="background-color: lightblue">
+<p style="font-size: 18px; color:purple"><u>Starmyler merhaba!</u> Sunucumuza hoşgeldiniz!</p>
+<p style="font-size: 18px; color:purple" contenteditable>Bunu düzenle (borderlı)</p>
+<p style="font-size: 18px; color:purple; outline:none" contenteditable>Bunu düzenle (bordersız)</p>
+<p> N<sub>2</sub> + H<sub>2</sub> &rarr; NH<sub>3</sub></p>
+<p> b<sup>2</sup> + x<sup>2</sup> &rarr; bx<sup>4</sup></p>
+<details style="text-align: right">
+<summary>Menü</summary>
+• <a href="www.home.com">Home</a> <br >
+• <a href="www.google.com" target="_blank">Google</a> <br >
+• <a href="www.snapchat.com">Snapchat</a>
+</details> <br >
+<form action="He.html">
+<label for="kim">Kim:</label>
+<input id="kim" list="listem" placeholder="Giriniz..."    required>
+<datalist id="listem">
+<option>Arda</option>
+<option>Kankamm</option>
+<option>Elvin</option>
+</datalist>
+<br >
+<label for="şifre">Şifre:</label>
+<input id="şifre "type="password" name="şifre" placeholder="Giriniz..." required> <br >
+<label for="kadın">Kadın:</label>
+<input type="radio" name="cinsiyet" value="Kadın" id="kadın" />
+<label for="erkek">Erkek:</label>
+<input type="radio" name="cinsiyet" value="Erkek" id="erkek" /> <br >
+Ben robot değilim <input type="checkbox"> <br >
+<select id="meyveler">
+      <option value="elma"> Elma </option>
+      <option value="muz"> Muz </option>
+   </select> <br >
+<button type="sumbit">Kayıt ol</button>
+</form>
+<div style="background: white; width: 300px; height: 100px">
+   	<p style="text-align:center">Birinci alan burası!</p>
+<pre>
+alt
+alta
+yazılar
+için
+</pre>
+   </div> <br >
 
-    <div class="container">
-        <!-- Giriş/Kayıt formu container -->
-        <div class="form-container">
-            <div id="login-form" class="form-box">
-                <h2>Giriş Yap</h2>
-                <form id="login-form-action">
-                    <input type="text" id="login-username" placeholder="Kullanıcı Adı" required>
-                    <input type="password" id="login-password" placeholder="Şifre" required>
-                    <button type="submit">Giriş Yap</button>
-                </form>
-                <p>Hesabınız yok mu? <a href="javascript:void(0);" id="register-link">Kaydolun</a></p>
-            </div>
+<textarea rows="1" cols="30" placeholder="Yazınız..." id="mesaj"></textarea>
+<button onclick="getValue();"> Göster </button>
 
-            <div id="register-form" class="form-box" style="display:none;">
-                <h2>Kaydol</h2>
-                <form id="register-form-action">
-                    <input type="text" id="register-username" placeholder="Kullanıcı Adı" required>
-                    <input type="email" id="register-email" placeholder="E-posta" required>
-                    <input type="password" id="register-password" placeholder="Şifre" required>
-                    <button type="submit">Kaydol</button>
-                </form>
-                <p>Zaten hesabınız var mı? <a href="javascript:void(0);" id="login-link-back">Giriş yapın</a></p>
-            </div>
+<script type="text/javascript">
+      function getValue() {
+         var value = document.getElementById('mesaj').value;
+         alert(value);
+      }
+   </script>
 
-            <p class="offer-rights">Teklif Hakkı</p>
-        </div>
-    </div>
-
-    <footer>
-        <p>&copy; 2025 Starmy World. All rights reserved.</p>
-    </footer>
-
-    <script src="script.js"></script>
+<iframe height="125" width="300"></iframe>
+<audio src="audio.mp3" controls></audio>
 </body>
+<footer>
+      <h4> © Starmy World 2020 | Tüm hakları saklıdır.</h2>
+</footer>
 </html>
