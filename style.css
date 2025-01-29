@@ -1,5 +1,4 @@
-
-/* Genel Stil Ayarları */
+/* Genel Stil */
 * {
     margin: 0;
     padding: 0;
@@ -14,52 +13,22 @@ body {
     align-items: center;
     height: 100vh;
     flex-direction: column;
+    padding-top: 60px;
 }
 
-/* Navbar ve Menü */
+/* Navbar */
 .navbar {
     width: 100%;
-    background-color: #4a148c; /* Darker shade of purple */
-    padding: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    background-color: #4a148c;
+    padding: 15px;
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 10;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.menu {
-    position: absolute;
-    top: 50px;
-    left: 0;
-    width: 100%;
-    background-color: #4a148c;
-    display: none;
-    transition: all 0.3s ease-in-out;
-}
-
-.menu.show-menu {
-    display: block;
-    transform: translateY(0);
-}
-
-.menu ul li a {
     color: white;
-    text-decoration: none;
-    font-size: 18px;
-    padding: 10px;
-    display: block;
+    text-align: center;
 }
 
-.menu ul li a:hover {
-    background-color: #7b1fa2;
-    border-radius: 5px;
-}
-
-/* Genel Form ve İçerik */
+/* Formlar */
 .container {
     width: 100%;
     max-width: 360px;
@@ -68,26 +37,15 @@ body {
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    margin-top: 70px;
+    margin-top: 20px;
 }
 
-input[type="text"],
-input[type="email"],
-input[type="password"] {
+input {
     width: 100%;
     padding: 15px;
     margin: 10px 0;
     border: 1px solid #ccc;
     border-radius: 5px;
-    font-size: 14px;
-    transition: border-color 0.3s;
-}
-
-input[type="text"]:focus,
-input[type="email"]:focus,
-input[type="password"]:focus {
-    border-color: #7b1fa2;
-    outline: none;
 }
 
 button {
@@ -97,11 +55,12 @@ button {
     color: white;
     border: none;
     border-radius: 5px;
-    font-size: 16px;
     cursor: pointer;
-    transition: background 0.3s;
 }
 
-button:hover {
-    background: linear-gradient(90deg, #9c4dcc, #4a148c);
+/* Hata Mesajı */
+.error-message {
+    color: red;
+    font-size: 14px;
+    display: none;
 }
