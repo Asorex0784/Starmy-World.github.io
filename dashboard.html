@@ -51,7 +51,7 @@
             gap: 5px;
             cursor: pointer;
             position: relative;
-            right: 15px;
+            left: 15px;
         }
 
         .hamburger div {
@@ -65,12 +65,13 @@
         .menu-list {
             display: none;
             position: absolute;
-            top: 60px;   /* Menü navbar'ın hemen altında */
-            left: -100;
+            bottom: -120px;   /* Navbar'ın altına yerleştirdim */
+            left: 0;
             background-color: #4a148c;
-            width: 100px;  /* Menü boyutunu uygun bir şekilde küçülttüm */
-            padding: 20px 0;
-            border-radius: 5px;
+            width: 150px;  /* Menü boyutunu kare yapacak şekilde küçülttüm */
+            height: 150px; /* Kare şeklinde olması için */
+            padding: 10px 0;
+            border-radius: 8px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
 
