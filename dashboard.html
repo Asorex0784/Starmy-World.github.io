@@ -68,8 +68,8 @@
             top: 60px;   /* Menü navbar'ın hemen altında */
             left: 0;
             background-color: #4a148c;
-            width: 100%;   /* Menü, navbar ile aynı genişlikte */
-            padding: 15px 0;
+            width: 200px;  /* Menü boyutunu uygun bir şekilde küçülttüm */
+            padding: 10px 0;
             border-radius: 8px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
@@ -80,7 +80,8 @@
             font-size: 16px;
             padding: 10px;
             display: block;
-            text-align: center;
+            text-align: left;
+            padding-left: 20px;
         }
 
         .menu-list a:hover {
@@ -121,9 +122,9 @@
 
     <!-- Menü Listesi -->
     <div class="menu-list" id="menu-list">
-        <a href="#">Ayarlar</a>
-        <a href="#">Profil</a>
-        <a href="#" onclick="logout()">Çıkış Yap</a>
+        <a href="#">• Ayarlar</a>
+        <a href="#">• Profil</a>
+        <a href="#" onclick="logout()">• Çıkış Yap</a>
     </div>
 
     <script>
