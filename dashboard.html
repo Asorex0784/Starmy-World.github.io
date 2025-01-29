@@ -69,8 +69,7 @@
             flex-direction: column;
             gap: 5px;
             cursor: pointer;
-            position: relative;  /* navbar'ın altında olacak şekilde konumlandırıldı */
-            top: 0;  /* navbar ile hizalı */
+            position: relative;
             right: 15px;
         }
 
@@ -84,11 +83,11 @@
         /* Menu Listesi */
         .menu-list {
             display: none;
-            position: relative;
-            top: 55px;  /* navbar'dan aşağıya kaydırma */
-            right: 0;
+            position: absolute;
+            top: 70px;   /* Menü biraz daha aşağıda */
+            left: 0;
             background-color: #4a148c;
-            width: 200px;
+            width: 100%;
             padding: 15px 0;
             border-radius: 8px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
@@ -107,7 +106,6 @@
             background-color: #7b1fa2;
         }
 
-        /* Ayarlar, Profil ve Çıkış Menüsü */
         .menu-list.show-menu {
             display: block;
         }
@@ -121,13 +119,7 @@
             padding: 30px;
             border-radius: 8px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            margin-top: 120px; /* Navbar ile içerik arasındaki boşluğu artırdık */
-        }
-
-        .error-message {
-            color: red;
-            font-size: 14px;
-            margin-top: 10px;
+            margin-top: 120px;
         }
 
     </style>
@@ -142,7 +134,8 @@
             <a href="#">Help</a>
             <a href="#">Server</a>
         </div>
-        <!-- Hamburger Menu -->
+
+        <!-- Hamburger Menü -->
         <div class="hamburger" onclick="toggleMenu()">
             <div></div>
             <div></div>
@@ -150,7 +143,7 @@
         </div>
     </div>
 
-    <!-- Hamburger Menu Listesi -->
+    <!-- Menü Listesi -->
     <div class="menu-list" id="menu-list">
         <a href="#">Ayarlar</a>
         <a href="#">Profil</a>
@@ -160,20 +153,21 @@
     <!-- Dashboard İçeriği -->
     <div class="container">
         <h2>Dashboard</h2>
-        <p>Hoş geldiniz! Burada bilgileriniz yer alacak.</p>
+        <p>Hoş geldin!</p>
     </div>
 
     <script>
-        // Hamburger menüsünü açıp kapama işlevi
+        // Menü Toggle Fonksiyonu
         function toggleMenu() {
-            const menuList = document.getElementById('menu-list');
+            var menuList = document.getElementById('menu-list');
             menuList.classList.toggle('show-menu');
         }
 
-        // Çıkış yap işlevi
+        // Çıkış Yap fonksiyonu
         function logout() {
-            window.location.href = 'index.html';  // Çıkış yapınca index sayfasına yönlendirme
+            window.location.href = 'index.html';  // Çıkış yapıldığında index.html'ye yönlendir
         }
+
     </script>
 
 </body>
