@@ -1,30 +1,59 @@
-// Menü açma ve kapama
-const menuIcon = document.getElementById('menu-icon');
-const menu = document.getElementById('menu');
+function toggleForm() {
+    let loginForm = document.getElementById('login-form');
+    let registerForm = document.getElementById('register-form');
 
-menuIcon.addEventListener('click', () => {
-    menu.classList.toggle('show-menu');
-    menu.style.transform = menu.classList.contains('show-menu') ? 'translateY(0)' : 'translateY(-100%)';
-});
+    loginForm.style.display = loginForm.style.display === 'none' ? 'block' : 'none';
+    registerForm.style.display = registerForm.style.display === 'none' ? 'block' : 'none';
+}
 
-// Formlar arasında geçiş
-document.getElementById('register-link').addEventListener('click', function() {
-    document.getElementById('login-form').style.display = 'none';
-    document.getElementById('register-form').style.display = 'block';
-});
+async function registerUser() {
+    let username = document.getElementById('register-username').value.trim();
+    let password = document.getElementById('register-password').value.trim();
+    let errorMessage = document.getElementById('register-error');
 
-document.getElementById('login-link-back').addEventListener('click', function() {
-    document.getElementById('register-form').style.display = 'none';
-    document.getElementById('login-form').style.display = 'block';
-});
+    if (username === "" || password === "") {
+        errorMessage.style.display = "block";
+        setTimeout(() => errorMessage.style.display = "none", 2000);
+        return;
+    }
 
-// Giriş ve kayıt işlemleri (şu an basit uyarılar)
-document.getElementById('login-form-action').addEventListener('submit', function(event) {
-    event.preventDefault();
-    alert("Giriş başarılı!");
-});
+    let response = await fetch("register.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: `username=${username}&password=${password}`
+    });
 
-document.getElementById('register-form-action').addEventListener('submit', function(event) {
-    event.preventDefault();
-    alert("Kaydolma başarılı!");
-});
+    let result = await response.json();
+    if (result.status === "success") {
+        alert("Kayıt başarılı! Giriş yapabilirsiniz.");
+        toggleForm();
+    } else {
+        alert("Kayıt başarısız! Kullanıcı adı alınmış olabilir.");
+    }
+}
+
+async function loginUser() {
+    let username = document.getElementById('login-username').value.trim();
+    let password = document.getElementById('login-password').value.trim();
+    let errorMessage = document.getElementById('login-error');
+
+    if (username === "" || password === "") {
+        errorMessage.style.display = "block";
+        setTimeout(() => errorMessage.style.display = "none", 2000);
+        return;
+    }
+
+    let response = await fetch("login.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: `username=${username}&password=${password}`
+    });
+
+    let result = await response.json();
+    if (result.status === "success") {
+        alert("Giriş başarılı! Ana sayfaya yönlendiriliyorsunuz...");
+        window.location.href = "dashboard.html";
+    } else {
+        alert("Hatalı kullanıcı adı veya şifre!");
+    }
+}
