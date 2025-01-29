@@ -3,41 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>STARMY WORLD - Giriş</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
+    <title>STARMY WORLD - Kayıt Ol</title>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.10.0/dist/supabase.js"></script>
+    <script>
+        // Supabase bağlantısını başlat
+        const supabase = Supabase.createClient('https://your-supabase-url.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InduZmhxd2pidmZiaWd3YWN0aWNtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzgxMzM4MTYsImV4cCI6MjA1MzcwOTgxNn0.QhkpC972oABWqw_V2WsJUWRazn0Ty9JsKas6qw_J5K4');
+        
+        async function registerUser() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Kullanıcı adı ve şifre boş olamaz
+            if (!username || !password) {
+                alert('Kullanıcı adı ve şifre boş olamaz!');
+                return;
+            }
+
+            // Kullanıcıyı veritabanına ekle
+            const { data, error } = await supabase
+                .from('users')
+                .insert([
+                    { username: username, password: password }
+                ]);
+
+            // Eğer hata varsa
+            if (error) {
+                alert('Kayıt sırasında bir hata oluştu: ' + error.message);
+            } else {
+                alert('Kayıt başarılı!');
+                // Kayıt başarılı olduğunda formu temizleyebilir veya yönlendirme yapabilirsiniz
+                document.getElementById('username').value = '';
+                document.getElementById('password').value = '';
+            }
+        }
+    </script>
 </head>
 <body>
-
-    <!-- Navbar -->
-    <div class="navbar">
-        <h1>STARMY WORLD</h1>
-        <div class="menu">
-            <a href="#">Home</a>
-            <a href="#">Help</a>
-            <a href="#">Server</a>
-        </div>
-    </div>
-
-    <!-- Giriş Formu -->
-    <div class="container" id="login-form">
-        <h2>Giriş Yap</h2>
-        <input type="text" id="login-username" placeholder="Kullanıcı Adı">
-        <input type="password" id="login-password" placeholder="Şifre">
-        <p id="login-error" class="error-message">Tüm alanları doldurun!</p>
-        <button onclick="loginUser()">Giriş Yap</button>
-        <p>Hesabın yok mu? <a href="#" onclick="toggleForm()">Kayıt Ol</a></p>
-    </div>
-
-    <!-- Kayıt Formu -->
-    <div class="container" id="register-form" style="display: none;">
-        <h2>Kayıt Ol</h2>
-        <input type="text" id="register-username" placeholder="Kullanıcı Adı">
-        <input type="password" id="register-password" placeholder="Şifre">
-        <p id="register-error" class="error-message">Tüm alanları doldurun!</p>
-        <button onclick="registerUser()">Kayıt Ol</button>
-        <p>Zaten hesabın var mı? <a href="#" onclick="toggleForm()">Giriş Yap</a></p>
-    </div>
-
+    <h1>STARMY WORLD - Kayıt Ol</h1>
+    <form onsubmit="event.preventDefault(); registerUser();">
+        <input type="text" id="username" placeholder="Kullanıcı Adı" required><br>
+        <input type="password" id="password" placeholder="Şifre" required><br>
+        <button type="submit">Kayıt Ol</button>
+    </form>
 </body>
 </html>
