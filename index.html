@@ -1,111 +1,43 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="tr">
 <head>
-<style type="text/css">   
-       button {
-           border: none;
-           background: #0076ff;
-           border-radius: 5px;
-           padding: 3px;
-           color: #fff;
-           font-weight: bold;
-           font-size: 15px;
-           text-transform: uppercase;
-       }
-   </style>
-
-<style type="text/css">   
-      textarea {
-         background-color: #f3f3f3; /* changing background-color */
-         color: #000000; /* changing the text color */
-         border: none; /* removing border */
-         outline: none; /* removing outline */
-         resize: none; /* disabling the resize functionality */
-      }
-   </style>
-
-<style type="text/css">   
-       label {
-       	border: 1px inset #0076ff;
-       	border-radius: 5px;
-       	background: #428bca;
-       	color: #fff;
-       	padding-left: 4px;
-       	padding-right: 4px;
-       	margin-right: 3px;
-       }
-   </style>
-
-<nav>
-<h3 style="text-align: center">STARMY WORLD</h3>
-<p style="float: right">
-            <a href="#"> Home </a> |
-            <a href="#"> About </a> |
-            <a href="#"> Contact Us </a> |
-            <a href="#"> Terms of Services </a> |
-            <a href="#"> Privacy Policy </a> </p>
-</nav>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STARMY WORLD - Giriş</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
-<hr style="height: 2px" color="black"/>
-<body style="background-color: lightblue">
-<p style="font-size: 18px; color:purple"><u>Starmyler merhaba!</u> Sunucumuza hoşgeldiniz!</p>
-<p style="font-size: 18px; color:purple" contenteditable>Bunu düzenle (borderlı)</p>
-<p style="font-size: 18px; color:purple; outline:none" contenteditable>Bunu düzenle (bordersız)</p>
-<p> N<sub>2</sub> + H<sub>2</sub> &rarr; NH<sub>3</sub></p>
-<p> b<sup>2</sup> + x<sup>2</sup> &rarr; bx<sup>4</sup></p>
-<details style="text-align: right">
-<summary>Menü</summary>
-• <a href="www.home.com">Home</a> <br >
-• <a href="www.google.com" target="_blank">Google</a> <br >
-• <a href="www.snapchat.com">Snapchat</a>
-</details> <br >
-<form action="He.html">
-<label for="kim">Kim:</label>
-<input id="kim" list="listem" placeholder="Giriniz..."    required>
-<datalist id="listem">
-<option>Arda</option>
-<option>Kankamm</option>
-<option>Elvin</option>
-</datalist>
-<br >
-<label for="şifre">Şifre:</label>
-<input id="şifre "type="password" name="şifre" placeholder="Giriniz..." required> <br >
-<label for="kadın">Kadın:</label>
-<input type="radio" name="cinsiyet" value="Kadın" id="kadın" />
-<label for="erkek">Erkek:</label>
-<input type="radio" name="cinsiyet" value="Erkek" id="erkek" /> <br >
-Ben robot değilim <input type="checkbox"> <br >
-<select id="meyveler">
-      <option value="elma"> Elma </option>
-      <option value="muz"> Muz </option>
-   </select> <br >
-<button type="sumbit">Kayıt ol</button>
-</form>
-<div style="background: white; width: 300px; height: 100px">
-   	<p style="text-align:center">Birinci alan burası!</p>
-<pre>
-alt
-alta
-yazılar
-için
-</pre>
-   </div> <br >
+<body>
 
-<textarea rows="1" cols="30" placeholder="Yazınız..." id="mesaj"></textarea>
-<button onclick="getValue();"> Göster </button>
+    <!-- Navbar -->
+    <div class="navbar">
+        <h1>STARMY WORLD</h1>
+        <div class="menu">
+            <a href="#">Home</a>
+            <a href="#">Help</a>
+            <a href="#">Server</a>
+        </div>
+    </div>
 
-<script type="text/javascript">
-      function getValue() {
-         var value = document.getElementById('mesaj').value;
-         alert(value);
-      }
-   </script>
+    <!-- Giriş Formu -->
+    <div class="container" id="login-form">
+        <h2>Giriş Yap</h2>
+        <input type="text" id="login-username" placeholder="Kullanıcı Adı">
+        <input type="password" id="login-password" placeholder="Şifre">
+        <p id="login-error" class="error-message">Tüm alanları doldurun!</p>
+        <button onclick="loginUser()">Giriş Yap</button>
+        <p>Hesabın yok mu? <a href="#" onclick="toggleForm()">Kayıt Ol</a></p>
+    </div>
 
-<iframe height="125" width="300"></iframe>
-<audio src="audio.mp3" controls></audio>
+    <!-- Kayıt Formu -->
+    <div class="container" id="register-form" style="display: none;">
+        <h2>Kayıt Ol</h2>
+        <input type="text" id="register-username" placeholder="Kullanıcı Adı">
+        <input type="password" id="register-password" placeholder="Şifre">
+        <p id="register-error" class="error-message">Tüm alanları doldurun!</p>
+        <button onclick="registerUser()">Kayıt Ol</button>
+        <p>Zaten hesabın var mı? <a href="#" onclick="toggleForm()">Giriş Yap</a></p>
+    </div>
+
 </body>
-<footer>
-      <h4> © Starmy World 2020 | Tüm hakları saklıdır.</h2>
-</footer>
 </html>
