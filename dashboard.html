@@ -65,10 +65,13 @@
 
         /* Hamburger Menu */
         .hamburger {
-            display: none;
-            cursor: pointer;
+            display: flex;
             flex-direction: column;
             gap: 5px;
+            cursor: pointer;
+            position: absolute;
+            top: 20px;
+            right: 15px;
         }
 
         .hamburger div {
@@ -83,10 +86,12 @@
             display: none;
             position: absolute;
             top: 60px;
-            left: 0;
+            right: 0;
             background-color: #4a148c;
-            width: 100%;
+            width: 200px;
             padding: 15px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
 
         .menu-list a {
@@ -102,7 +107,12 @@
             background-color: #7b1fa2;
         }
 
-        /* Form Konteyneri */
+        /* Ayarlar, Profil ve Çıkış Menüsü */
+        .menu-list.show-menu {
+            display: block;
+        }
+
+        /* Dashboard İçeriği */
         .container {
             width: 100%;
             max-width: 360px;
@@ -112,11 +122,6 @@
             border-radius: 8px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
             margin-top: 100px; /* Navbar ile içerik arasındaki boşluğu artırdık */
-        }
-
-        /* Ayarlar, Profil ve Çıkış Menüsü */
-        .menu-list.show-menu {
-            display: block;
         }
 
         .error-message {
