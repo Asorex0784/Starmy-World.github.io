@@ -152,7 +152,7 @@
         <h2>Giriş Yap</h2>
         <input type="text" id="login-username" placeholder="Kullanıcı Adı">
         <input type="password" id="login-password" placeholder="Şifre">
-        <button onclick="redirectToDashboard()">Giriş Yap</button>
+        <button onclick="validateLogin()">Giriş Yap</button>
         <p class="error-message" id="login-error">Lütfen tüm alanları doldurun!</p>
         <button class="switch" onclick="toggleForm()">Hesabın yok mu? Kayıt Ol</button>
     </div>
@@ -162,7 +162,7 @@
         <h2>Kayıt Ol</h2>
         <input type="text" id="register-username" placeholder="Kullanıcı Adı">
         <input type="password" id="register-password" placeholder="Şifre">
-        <button onclick="redirectToDashboard()">Kayıt Ol</button>
+        <button onclick="validateRegister()">Kayıt Ol</button>
         <p class="error-message" id="register-error">Lütfen tüm alanları doldurun!</p>
         <button class="switch" onclick="toggleForm()">Zaten hesabın var mı? Giriş Yap</button>
     </div>
@@ -181,9 +181,34 @@
             }
         }
 
-        function redirectToDashboard() {
-            // Sayfalar arasında geçiş sağlamak için bu fonksiyonu kullanıyoruz.
-            window.location.href = "dashboard.html";
+        function validateLogin() {
+            let username = document.getElementById('login-username').value.trim();
+            let password = document.getElementById('login-password').value.trim();
+            let errorMessage = document.getElementById('login-error');
+
+            if (username === "" || password === "") {
+                errorMessage.style.display = "block";
+                setTimeout(() => {
+                    errorMessage.style.display = "none";
+                }, 2000);
+            } else {
+                window.location.href = "dashboard.html";
+            }
+        }
+
+        function validateRegister() {
+            let username = document.getElementById('register-username').value.trim();
+            let password = document.getElementById('register-password').value.trim();
+            let errorMessage = document.getElementById('register-error');
+
+            if (username === "" || password === "") {
+                errorMessage.style.display = "block";
+                setTimeout(() => {
+                    errorMessage.style.display = "none";
+                }, 2000);
+            } else {
+                window.location.href = "dashboard.html";
+            }
         }
     </script>
 
