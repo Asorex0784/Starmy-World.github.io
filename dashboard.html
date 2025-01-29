@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STARMY WORLD - Ana Sayfa</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <h1>STARMY WORLD</h1>
+        <div class="menu">
+            <a href="#">Home</a>
+            <a href="#">Help</a>
+            <a href="#">Server</a>
+            <a href="logout.php">Çıkış Yap</a>
+        </div>
+    </div>
+
+    <!-- Dashboard İçeriği -->
+    <div class="container">
+        <h2>Hoşgeldiniz, <span id="username"></span>!</h2>
+        <p>Buradan siteye dair işlemler yapabilirsiniz.</p>
+    </div>
+
+    <script>
+        // Kullanıcı adı ve giriş kontrolü
+        const username = localStorage.getItem('username');
+        if (username) {
+            document.getElementById('username').textContent = username;
+        } else {
+            window.location.href = 'index.html';
+        }
+    </script>
+
+</body>
+</html>
