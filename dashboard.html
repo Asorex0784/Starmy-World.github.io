@@ -69,8 +69,8 @@
             flex-direction: column;
             gap: 5px;
             cursor: pointer;
-            position: absolute;
-            top: 20px;
+            position: relative;  /* navbar'ın altında olacak şekilde konumlandırıldı */
+            top: 0;  /* navbar ile hizalı */
             right: 15px;
         }
 
@@ -84,8 +84,8 @@
         /* Menu Listesi */
         .menu-list {
             display: none;
-            position: absolute;
-            top: 65px;  /* Navbar'ın hemen altına gelecek şekilde ayarlandı */
+            position: relative;
+            top: 55px;  /* navbar'dan aşağıya kaydırma */
             right: 0;
             background-color: #4a148c;
             width: 200px;
