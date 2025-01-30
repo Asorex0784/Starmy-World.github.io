@@ -133,6 +133,52 @@
             margin-top: 10px;
             display: none;
         }
+
+        /* Diğer Stil */
+        /* Diyalog kutusu */
+        .dialog {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            background-color: white;
+            border: 2px solid #4a148c;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            z-index: 20;
+            text-align: center;
+        }
+
+        .dialog p {
+            margin: 15px 0;
+            font-size: 16px;
+        }
+
+        .dialog button {
+            padding: 10px 15px;
+            background-color: #4a148c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .dialog button:hover {
+            background-color: #7b1fa2;
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 10;
+        }
     </style>
 </head>
 <body>
@@ -143,7 +189,7 @@
         <div class="menu">
             <a href="#">Home</a>
             <a href="#">Help</a>
-            <a href="#">Server</a>
+            <a href="#" onclick="showDialog()">Server</a>
         </div>
     </div>
 
@@ -165,6 +211,13 @@
         <button onclick="validateRegister(event)">Kayıt Ol</button>
         <p class="error-message" id="register-error">Lütfen tüm alanları doldurun!</p>
         <button class="switch" onclick="toggleForm()">Zaten hesabın var mı? Giriş Yap</button>
+    </div>
+
+    <!-- Diyalog Kutusu -->
+    <div class="overlay" id="overlay"></div>
+    <div class="dialog" id="dialog">
+        <p>STARMY WORLD Discord sunucusuna katılmak için <a href="https://discord.gg/C9qgjETnqA" target="_blank">buraya tıklayın</a>.</p>
+        <button onclick="closeDialog()">Kapat</button>
     </div>
 
     <script>
@@ -213,6 +266,17 @@
             } else {
                 window.location.href = "dashboard.html";  // Yönlendirme
             }
+        }
+
+        function showDialog() {
+            document.getElementById('dialog').style.display = 'block';
+            document.getElementById('overlay').style.display = 'block';
+        }
+
+        function closeDialog() {
+            document.getElementById('dialog').style.display = 'none';
+            document.getElementById
+            document.getElementById('overlay').style.display = 'none';
         }
     </script>
 
