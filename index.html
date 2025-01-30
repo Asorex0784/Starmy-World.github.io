@@ -183,6 +183,13 @@
             z-index: 10;
         }
     </style>
+    <script>
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("/service-worker.js")
+      .then(() => console.log("Service Worker Kayıt Edildi"))
+      .catch((error) => console.log("Service Worker Kaydedilemedi", error));
+  }
+    </script>
 </head>
 <body>
 
