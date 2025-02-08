@@ -24,8 +24,6 @@
             padding-top: 60px;
         }
 
-        
-        
         /* Navbar */
         .navbar {
             width: 100%;
@@ -109,11 +107,12 @@
             border-radius: 5px;
             font-size: 16px;
             cursor: pointer;
-            transition: background 0.3s;
+            transition: background 0.3s, transform 0.2s;
         }
 
         button:hover {
             background: linear-gradient(90deg, #9c4dcc, #4a148c);
+            transform: scale(1.05);
         }
 
         .switch {
@@ -137,7 +136,6 @@
             display: none;
         }
 
-        /* Diğer Stil */
         /* Diyalog kutusu */
         .dialog {
             display: none;
@@ -152,6 +150,14 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             z-index: 20;
             text-align: center;
+            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+            opacity: 0;
+            transform: translate(-50%, -60%);
+        }
+
+        .dialog.show {
+            opacity: 1;
+            transform: translate(-50%, -50%);
         }
 
         .dialog p {
@@ -182,53 +188,82 @@
             background: rgba(0, 0, 0, 0.5);
             z-index: 10;
         }
+
+        /* Responsive Tasarım */
+        @media (max-width: 768px) {
+            .navbar h1 {
+                font-size: 18px;
+            }
+
+            .menu a {
+                font-size: 14px;
+                padding: 8px;
+            }
+
+            .container {
+                padding: 20px;
+                margin-top: 10px;
+            }
+        }
     </style>
     <script>
-  if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.register("/service-worker.js")
-      .then(() => console.log("Service Worker Kayıt Edildi"))
-      .catch((error) => console.log("Service Worker Kaydedilemedi", error));
-  }
+        if ("serviceWorker" in navigator) {
+            navigator.serviceWorker.register("/service-worker.js")
+                .then(() => console.log("Service Worker Kayıt Edildi"))
+                .catch((error) => console.log("Service Worker Kaydedilemedi", error));
+        }
     </script>
 </head>
 <body>
 
     <!-- Navbar -->
-    <div class="navbar">
+    <header class="navbar">
         <h1>STARMY WORLD</h1>
-        <div class="menu">
+        <nav class="menu">
             <a href="#">Home</a>
             <a href="#">Help</a>
             <a href="#" onclick="showDialog()">Server</a>
-        </div>
-    </div>
+        </nav>
+    </header>
 
     <!-- Giriş Formu -->
-    <div class="container" id="login-form">
-        <h2>Giriş Yap</h2>
-        <input type="text" id="login-username" placeholder="Kullanıcı Adı">
-        <input type="password" id="login-password" placeholder="Şifre">
-        <button onclick="validateLogin(event)">Giriş Yap</button>
-        <p class="error-message" id="login-error">Lütfen tüm alanları doldurun!</p>
-        <button class="switch" onclick="toggleForm()">Hesabın yok mu? Kayıt Ol</button>
-    </div>
+    <main>
+        <div class="container" id="login-form">
+            <h2>Giriş Yap</h2>
+            <input type="text" id="login-username" placeholder="Kullanıcı Adı" aria-label="Kullanıcı Adı">
+            <div class="password-container">
+                <input type="password" id="login-password" placeholder="Şifre" aria-label="Şifre">
+                <button type="button" id="toggle-password" aria-label="Şifreyi Göster">Göster</button>
+            </div>
+            <button onclick="validateLogin(event)" aria-label="Giriş Yap">Giriş Yap</button>
+            <p class="error-message" id="login-error">Lütfen tüm alanları doldurun!</p>
+            <button class="switch" onclick="toggleForm()">Hesabın yok mu? Kayıt Ol</button>
+        </div>
 
-    <!-- Kayıt Ol Formu -->
-    <div class="container" id="register-form" style="display: none;">
-        <h2>Kayıt Ol</h2>
-        <input type="text" id="register-username" placeholder="Kullanıcı Adı">
-        <input type="password" id="register-password" placeholder="Şifre">
-        <button onclick="validateRegister(event)">Kayıt Ol</button>
-        <p class="error-message" id="register-error">Lütfen tüm alanları doldurun!</p>
-        <button class="switch" onclick="toggleForm()">Zaten hesabın var mı? Giriş Yap</button>
-    </div>
+        <!-- Kayıt Ol Formu -->
+        <div class="container" id="register-form" style="display: none;">
+            <h2>Kayıt Ol</h2>
+            <input type="text" id="register-username" placeholder="Kullanıcı Adı" aria-label="Kullanıcı Adı">
+            <div class="password-container">
+                <input type="password" id="register-password" placeholder="Şifre" aria-label="Şifre">
+                <button type="button" id="toggle-password-register" aria-label="Şifreyi Göster">Göster</button>
+            </div>
+            <button onclick="validateRegister(event)" aria-label="Kayıt Ol">Kayıt Ol</button>
+            <p class="error-message" id="register-error">Lütfen tüm alanları doldurun!</p>
+            <button class="switch" onclick="toggleForm()">Zaten hesabın var mı? Giriş Yap</button>
+        </div>
+    </main>
 
     <!-- Diyalog Kutusu -->
     <div class="overlay" id="overlay"></div>
-    <div class="dialog" id="dialog">
-        <p>STARMY WORLD Discord sunucusuna katılmak için <a href="https://discord.gg/C9qgjETnqA" target="_blank">buraya tıklayın</a>.</p>
-        <button onclick="closeDialog()">Kapat</button>
+    <div class="dialog" id="dialog" role="dialog" aria-labelledby="dialog-title">
+        <p id="dialog-title">STARMY WORLD Discord sunucusuna katılmak için <a href="https://discord.gg/C9qgjETnqA" target="_blank">buraya tıklayın</a>.</p>
+        <button onclick="closeDialog()" aria-label="Kapat">Kapat</button>
     </div>
+
+    <footer>
+        <p>&copy; 2025 STARMY WORLD. All rights reserved.</p>
+    </footer>
 
     <script>
         function toggleForm() {
@@ -249,15 +284,15 @@
             let password = document.getElementById('login-password').value.trim();
             let errorMessage = document.getElementById('login-error');
 
-            // Form kontrolü
             if (username === "" || password === "") {
+                errorMessage.textContent = "Lütfen tüm alanları doldurun!";
                 errorMessage.style.display = "block";
                 setTimeout(() => {
                     errorMessage.style.display = "none";
                 }, 2000);
-                event.preventDefault();  // Formun gönderilmesini engelle
+                event.preventDefault();
             } else {
-                window.location.href = "dashboard.html";  // Yönlendirme
+                window.location.href = "dashboard.html";
             }
         }
 
@@ -266,29 +301,50 @@
             let password = document.getElementById('register-password').value.trim();
             let errorMessage = document.getElementById('register-error');
 
-            // Form kontrolü
             if (username === "" || password === "") {
+                errorMessage.textContent = "Lütfen tüm alanları doldurun!";
                 errorMessage.style.display = "block";
                 setTimeout(() => {
                     errorMessage.style.display = "none";
                 }, 2000);
-                event.preventDefault();  // Formun gönderilmesini engelle
+                event.preventDefault();
             } else {
-                window.location.href = "dashboard.html";  // Yönlendirme
+                window.location.href = "dashboard.html";
             }
         }
 
         function showDialog() {
-            document.getElementById('dialog').style.display = 'block';
+            document.getElementById('dialog').classList.add('show');
             document.getElementById('overlay').style.display = 'block';
         }
 
         function closeDialog() {
-            document.getElementById('dialog').style.display = 'none';
-            document.getElementById
+            document.getElementById('dialog').classList.remove('show');
             document.getElementById('overlay').style.display = 'none';
         }
-    </script>
 
+        // Şifre Göster/Gizle
+        document.getElementById('toggle-password').addEventListener('click', function() {
+            const passwordInput = document.getElementById('login-password');
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                this.textContent = 'Gizle';
+            } else {
+                passwordInput.type = 'password';
+                this.textContent = 'Göster';
+            }
+        });
+
+        document.getElementById('toggle-password-register').addEventListener('click', function() {
+            const passwordInput = document.getElementById('register-password');
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                this.textContent = 'Gizle';
+            } else {
+                passwordInput.type = 'password';
+                this.textContent = 'Göster';
+            }
+        });
+    </script>
 </body>
 </html>
